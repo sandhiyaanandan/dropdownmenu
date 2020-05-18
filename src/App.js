@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {CustomMenu, CustomToggle} from './utility';
+import Dropdown from 'react-bootstrap/Dropdown'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const lang = [{name:"aaaa"},{name:"bbb"},{name:"ccc"}];
+  let chld = [];
+  const clicking = (e) =>
+  {
+    console.log("**************"+e.target.name);
+  }
+  
+  return(
+    <Dropdown>
+      <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+        English
+      </Dropdown.Toggle>
+  
+      <Dropdown.Menu as={CustomMenu}>
+        <Dropdown.Item onClick = {clicking} name="sandy" eventKey="1">Red</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );  
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
